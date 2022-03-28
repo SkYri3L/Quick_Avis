@@ -10,6 +10,8 @@ using System.Diagnostics;
 using ActionMenuApi.Pedals;
 using ActionMenuApi;
 using ActionMenuApi.Api;
+using Quick_Avis.Resources;
+
 
 namespace Quick_Avis
 {
@@ -18,7 +20,7 @@ namespace Quick_Avis
         public const string Name = "Quick Avatars";
         public const string Author = "SkYri3L";
         public const string Company = "null";
-        public const string Verison = "0.0.1";
+        public const string Verison = "0.0.3";
         public const string DownloadLink = "https://github.com/SkYri3L/Quick_Avis";
         public const string Descripiton = "Adds the option to favourite/unfavourite and swap avatars in the Action menu.";
     }
@@ -38,7 +40,7 @@ namespace Quick_Avis
                 MelonLogger.Msg(ConsoleColor.Green, "Debug mode is active");
             }
             MelonLogger.Msg("Initializing .  .  .");
-            MelonCoroutines.Start(Resources.ResourceManager.LoadResources());
+            MelonCoroutines.Start(ResourceManager.LoadResources());
 
             if (MelonHandler.Mods.Any(m => m.Info.Name.Equals("ActionMenuApi")))
             {
@@ -56,13 +58,13 @@ namespace Quick_Avis
                 string e = string.Empty;
                 subMenu = VRCActionMenuPage.AddSubMenu(ActionMenuPage.Options, "Quick Avis", () =>
                 {
-                    CustomSubMenu.AddButton(e, () => Music.NextTrack(), Resources.ResourceManager.Next);
-                    CustomSubMenu.AddButton(e, () => Music.PlayPause(), Resources.ResourceManager.Play);
-                    CustomSubMenu.AddButton(e, () => Music.PrevTrack(), Resources.ResourceManager.Back);
-                    CustomSubMenu.AddButton(e, () => Music.VolumeUp(), Resources.ResourceManager.VolUp);
-                    CustomSubMenu.AddButton(e, () => Music.VolumeDown(), Resources.ResourceManager.VolDown);
-                    CustomSubMenu.AddButton(e, () => Music.VolumeMute(), Resources.ResourceManager.VolMute);
-                }, Resources.ResourceManager.Menu);
+                    CustomSubMenu.AddButton(e, () => Music.NextTrack(), ResourceManager.Next);
+                    CustomSubMenu.AddButton(e, () => Music.PlayPause(), ResourceManager.Play);
+                    CustomSubMenu.AddButton(e, () => Music.PrevTrack(), ResourceManager.Back);
+                    CustomSubMenu.AddButton(e, () => Music.VolumeUp(), ResourceManager.VolUp);
+                    CustomSubMenu.AddButton(e, () => Music.VolumeDown(), ResourceManager.VolDown);
+                    CustomSubMenu.AddButton(e, () => Music.VolumeMute(), ResourceManager.VolMute);
+                }, ResourceManager.Menu);
                 if (Main.isDebug) MelonLogger.Msg(ConsoleColor.Green, "Finihsed creating ActionMenu Buttons");
 
 
