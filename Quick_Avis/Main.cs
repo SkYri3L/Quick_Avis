@@ -38,6 +38,7 @@ namespace Quick_Avis
                 MelonLogger.Msg(ConsoleColor.Green, "Debug mode is active");
             }
             MelonLogger.Msg("Initializing .  .  .");
+            MelonCoroutines.Start(Resources.ResourceManager.LoadResources());
 
             if (MelonHandler.Mods.Any(m => m.Info.Name.Equals("ActionMenuApi")))
             {
@@ -52,6 +53,19 @@ namespace Quick_Avis
 
             void BuildActionMenu()
             {
+                string e = string.Empty;
+                subMenu = VRCActionMenuPage.AddSubMenu(ActionMenuPage.Options, "Quick Avis", () =>
+                {
+                    CustomSubMenu.AddButton(e, () => Music.NextTrack(), Resources.ResourceManager.Next);
+                    CustomSubMenu.AddButton(e, () => Music.PlayPause(), Resources.ResourceManager.Play);
+                    CustomSubMenu.AddButton(e, () => Music.PrevTrack(), Resources.ResourceManager.Back);
+                    CustomSubMenu.AddButton(e, () => Music.VolumeUp(), Resources.ResourceManager.VolUp);
+                    CustomSubMenu.AddButton(e, () => Music.VolumeDown(), Resources.ResourceManager.VolDown);
+                    CustomSubMenu.AddButton(e, () => Music.VolumeMute(), Resources.ResourceManager.VolMute);
+                }, Resources.ResourceManager.Menu);
+                if (Main.isDebug) MelonLogger.Msg(ConsoleColor.Green, "Finihsed creating ActionMenu Buttons");
+
+
             }
             
             
