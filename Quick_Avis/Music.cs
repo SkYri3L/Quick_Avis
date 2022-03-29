@@ -55,4 +55,12 @@ namespace Quick_Avis
             keybd_event(volMute, volMute, KEYEVENTF_KEYUP, 0);
         }
     }
+
+    class AviFuncs
+    {
+        
+        
+        
+    }
+
 }

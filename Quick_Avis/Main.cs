@@ -20,7 +20,7 @@ namespace Quick_Avis
         public const string Name = "Quick Avatars";
         public const string Author = "SkYri3L";
         public const string Company = "null";
-        public const string Verison = "0.0.3";
+        public const string Verison = "0.0.4";
         public const string DownloadLink = "https://github.com/SkYri3L/Quick_Avis";
         public const string Descripiton = "Adds the option to favourite/unfavourite and swap avatars in the Action menu.";
     }
@@ -58,12 +58,12 @@ namespace Quick_Avis
                 string e = string.Empty;
                 subMenu = VRCActionMenuPage.AddSubMenu(ActionMenuPage.Options, "Quick Avis", () =>
                 {
-                    CustomSubMenu.AddButton(e, () => Music.NextTrack(), ResourceManager.Next);
-                    CustomSubMenu.AddButton(e, () => Music.PlayPause(), ResourceManager.Play);
-                    CustomSubMenu.AddButton(e, () => Music.PrevTrack(), ResourceManager.Back);
-                    CustomSubMenu.AddButton(e, () => Music.VolumeUp(), ResourceManager.VolUp);
-                    CustomSubMenu.AddButton(e, () => Music.VolumeDown(), ResourceManager.VolDown);
-                    CustomSubMenu.AddButton(e, () => Music.VolumeMute(), ResourceManager.VolMute);
+                    CustomSubMenu.AddButton(e, () => Music.NextTrack()); //Favourite Avatars
+                    CustomSubMenu.AddButton(e, () => Music.PlayPause()); //Own Avatars (Users created avatars)
+                    CustomSubMenu.AddButton(e, () => Music.PrevTrack()); //Emm Avatars (Optional) (Button doesn't get added if Emm is not present)
+                    CustomSubMenu.AddButton(e, () => Music.VolumeUp()); //ReMod Avatars (Optional) (button doesn't get added if Remod/CE is not present)
+                    CustomSubMenu.AddButton(e, () => Music.VolumeDown()); //favourite current avatar
+                    CustomSubMenu.AddButton(e, () => Music.VolumeMute()); //unfavourite current avatar 
                 }, ResourceManager.Menu);
                 if (Main.isDebug) MelonLogger.Msg(ConsoleColor.Green, "Finihsed creating ActionMenu Buttons");
 
